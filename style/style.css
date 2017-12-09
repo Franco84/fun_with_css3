@@ -1,51 +1,141 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
-  margin: 0 !important;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(0deg, #CCC, #FFF, #CCC);
 }
 
+/*####### TOP BANNER #######*/
+
+.bg {
+  background-color: #504A54;
+  text-align: center;
+}
+
+/*####### BANNER TEXT #######*/
 .header-container {
-  display: flex;
-  height: 200px;
-  align-items: center;
-  justify-content: center;
+  padding-top: 20px;
 }
 
 .header-text {
-  display: flex;
-  font-family: 'Roboto', sans-serif;
-  font-size: 8vw;
-  text-shadow: 2px 2px 3px;
+  font-size: 8vw !important;
+  color: #f5f5f5 !important;
 }
 
-.blue-bg {
-  position: fixed;
-  background-color: #cef1ff;
-  top: 0;
-  height: 400px;
-  width: 100vw;
-  z-index: -1;
+.navigation {
+  color: #f5f5f5 !important;
+  font-size: 2vw;
+  text-align: center;
+  padding: 10px 0;
 }
 
-.white-bg {
-  position: absolute;
-  top: 0;
-  background-color: #fff;
-  min-height: 500px;
-  margin: 210px 0px;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
+.navigation span {
+  padding: 2px 8px;
+  margin: 0 5px;
+  border-radius: 5px;
 }
+
+.selected {
+  background-color: #A535E3;
+  padding: 2px 8px;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.navigation span:hover  {
+  color: #CCCCCC;
+}
+
+/*####### FORM STYLING #######*/
 
 .content {
-  position: absolute;
-  top: 0;
-  margin: 250px 10vw;
-  max-width: 60vw;
-  background-color: #fff;
+  padding: 20px 0;
+  text-align: center;
 }
 
-.shadow {
-  box-shadow: -2px -5px 5px 0px rgba(0,0,0,0.15);
+.spacer {
+  padding: 0 20px;
+}
+
+/*####### ANIMATION AREA #######*/
+
+.animation-space {
+  height: 100px;
+  width: 100px;
+  background-color: #333;
+  margin: 25vh auto;
+}
+
+/*####### ANIMATION IMAGE TYPES #######*/
+
+.squares {
+  height: 50px;
+  width: 50px;
+  background-color: #99e3ff;
+  margin: 0 auto;
+}
+
+.circles {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #99e3ff;
+  margin: 0 auto;
+}
+
+/*########@@@@@@@ ANIMATIONS @@@@@@@#######*/
+
+
+/*####### Large Fade Out #######*/
+
+@keyframes large-fade-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.large-fade-out:hover {
+  animation: large-fade-out 2s ease forwards;
+}
+
+/*####### SMALL FADE In #######*/
+
+@keyframes small-fade-in {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.small-fade-in:hover {
+  animation: small-fade-in 2s linear forwards;
+}
+
+/*####### Vertical Squish #######*/
+@keyframes vertical-squish {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.vertical-squish:hover {
+  animation-name: vertical-squish;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
 }
