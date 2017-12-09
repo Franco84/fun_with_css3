@@ -10,7 +10,7 @@ class App extends Component {
     super(props)
     this.onAnimationTypeSelect = this.onAnimationTypeSelect.bind(this)
     this.onShapeSelect = this.onShapeSelect.bind(this)
-    this.state = {shape: "square", animationType: "large-fade-out"}
+    this.state = {shape: "circles", animationType: "large-fade-out"}
   }
 
   onAnimationTypeSelect(e) {

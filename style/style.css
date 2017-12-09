@@ -69,18 +69,11 @@ body {
 /*####### ANIMATION IMAGE TYPES #######*/
 
 .squares {
-  height: 50px;
-  width: 50px;
-  background-color: #99e3ff;
-  margin: 0 auto;
+  border-radius: 5px;
 }
 
 .circles {
-  height: 50px;
-  width: 50px;
   border-radius: 50%;
-  background-color: #99e3ff;
-  margin: 0 auto;
 }
 
 /*########@@@@@@@ ANIMATIONS @@@@@@@#######*/

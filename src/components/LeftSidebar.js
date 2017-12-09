@@ -32,8 +32,8 @@ export default class LeftSidebar extends Component {
           </Dropdown>
           <Dropdown item text='Shape'>
             <Dropdown.Menu>
-              <Dropdown.Item name='circle' active={this.state.activeShape === 'circle'} onClick={this.handleShapeClick} icon='circle' text='Circle' />
-              <Dropdown.Item name='square' active={this.state.activeShape === 'square'} onClick={this.handleShapeClick} icon='square' text='Square' />
+              <Dropdown.Item name='circles' active={this.state.activeShape === 'circles'} onClick={this.handleShapeClick} icon='circle' text='Circle' />
+              <Dropdown.Item name='squares' active={this.state.activeShape === 'squares'} onClick={this.handleShapeClick} icon='square' text='Square' />
             </Dropdown.Menu>
           </Dropdown>
       </Menu>
