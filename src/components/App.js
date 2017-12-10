@@ -38,22 +38,22 @@ class App extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column mobile={1} tablet={1} computer={1}>
-              <div></div>
+            <Grid.Column mobile={2} tablet={1} computer={1}>
+              <div> </div>
             </Grid.Column>
-            <Grid.Column mobile={16} tablet={4} computer={2}>
+            <Grid.Column mobile={12} tablet={2} computer={2}>
               <LeftSidebar animationTypeSelect={this.onAnimationTypeSelect} shapeSelect={this.onShapeSelect} />
             </Grid.Column>
-            <Grid.Column mobile={1} tablet={1} computer={1}>
+            <Grid.Column mobile={2} tablet={1} computer={1}>
+              <div> </div>
+            </Grid.Column>
+            <Grid.Column mobile={2} tablet={1} computer={1}>
               <div></div>
             </Grid.Column>
-            <Grid.Column mobile={1} tablet={1} computer={1}>
-              <div></div>
-            </Grid.Column>
-            <Grid.Column sm={2} mobile={16} tablet={10} computer={10}>
+            <Grid.Column mobile={12} tablet={10} computer={10}>
               <Animation animationType={this.state.animationType} shape={this.state.shape} />
             </Grid.Column>
-            <Grid.Column mobile={1} tablet={1} computer={1}>
+            <Grid.Column mobile={2} tablet={1} computer={1}>
               <div></div>
             </Grid.Column>
            </Grid.Row>

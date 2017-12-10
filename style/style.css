@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(0deg, #CCC, #FFF, #CCC);
+  background: linear-gradient(0deg, #CCC, #EEE, #CCC);
 }
 
 /*####### TOP BANNER #######*/
@@ -46,6 +46,11 @@ body {
   color: #CCCCCC;
 }
 
+.menu-alignment {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /*####### FORM STYLING #######*/
 
 .content {
@@ -60,24 +65,44 @@ body {
 /*####### ANIMATION AREA #######*/
 
 .animation-space {
-  height: 200px;
-  width: 200px;
-  background-color: #333;
-  margin: 25vh auto;
+  margin: 20vh auto;
 }
 
 /*####### ANIMATION IMAGE TYPES #######*/
 
 .squares {
+  background-color: #333;
+  height: 200px;
+  width: 200px;
   border-radius: 5px;
 }
 
 .circles {
+  background-color: #333;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
 }
 
+.img-div {
+  text-align: center;
+}
+
 .photo-border {
+  background-color: #333;
   border: 10px solid white;
+}
+
+.text-shape {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.button-shape {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 /*########@@@@@@@ ANIMATIONS @@@@@@@#######*/
@@ -131,8 +156,20 @@ body {
 }
 
 .vertical-squish:hover {
-  animation-name: vertical-squish;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
+  animation: vertical-squish 3s linear both;
+}
+
+/*####### 360 Turn #######*/
+
+@keyframes three-sixty {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.three-sixty:hover {
+	animation: three-sixty 1s ease-in-out both;
 }
