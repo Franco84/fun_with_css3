@@ -10,20 +10,28 @@ class App extends Component {
     super(props)
     this.onAnimationTypeSelect = this.onAnimationTypeSelect.bind(this)
     this.onShapeSelect = this.onShapeSelect.bind(this)
-    this.state = {shape: "circles", animationType: "large-fade-out"}
+    this.onTransitionSelect = this.onTransitionSelect.bind(this)
+    this.state = {shape: 'circles', animationType: 'large-fade-out', transition: 'ease'}
   }
 
   onAnimationTypeSelect(e) {
     this.setState({
-      shape: this.state.shape, animationType: e
+      shape: this.state.shape, animationType: e, transition: this.state.transition
     })
   }
 
   onShapeSelect(e) {
     this.setState({
-      shape: e, animationType: this.state.animationType
+      shape: e, animationType: this.state.animationType, transition: this.state.transition
     })
   }
+
+  onTransitionSelect(e) {
+    this.setState({
+      shape: this.state.shape, animationType: this.state.animationType, transition: e
+    })
+  }
+
 
   render() {
     return (
@@ -42,7 +50,14 @@ class App extends Component {
               <div> </div>
             </Grid.Column>
             <Grid.Column mobile={12} tablet={2} computer={2}>
-              <LeftSidebar animationTypeSelect={this.onAnimationTypeSelect} shapeSelect={this.onShapeSelect} />
+              <LeftSidebar
+                animationTypeSelect={this.onAnimationTypeSelect}
+                shapeSelect={this.onShapeSelect}
+                transitionSelect={this.onTransitionSelect}
+                activeAnimation={this.state.animationType}
+                shape={this.state.shape}
+                transition={this.state.transition}
+               />
             </Grid.Column>
             <Grid.Column mobile={2} tablet={1} computer={1}>
               <div> </div>
@@ -51,7 +66,7 @@ class App extends Component {
               <div></div>
             </Grid.Column>
             <Grid.Column mobile={12} tablet={10} computer={10}>
-              <Animation animationType={this.state.animationType} shape={this.state.shape} />
+              <Animation animationType={this.state.animationType} shape={this.state.shape} transition={this.state.transition} />
             </Grid.Column>
             <Grid.Column mobile={2} tablet={1} computer={1}>
               <div></div>
