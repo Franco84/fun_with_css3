@@ -60,8 +60,8 @@ body {
 /*####### ANIMATION AREA #######*/
 
 .animation-space {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   background-color: #333;
   margin: 25vh auto;
 }
@@ -76,6 +76,10 @@ body {
   border-radius: 50%;
 }
 
+.photo-border {
+  border: 10px solid white;
+}
+
 /*########@@@@@@@ ANIMATIONS @@@@@@@#######*/
 
 
@@ -87,7 +91,7 @@ body {
     opacity: 1;
   }
   100% {
-    transform: scale(3);
+    transform: scale(2);
     opacity: 0;
   }
 }
