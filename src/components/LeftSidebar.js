@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dropdown, Icon, Input, Menu, Form, Checkbox } from 'semantic-ui-react'
+import { Dropdown, Icon, Input, Menu, Form, Checkbox, Label } from 'semantic-ui-react'
 
 export default class LeftSidebar extends Component {
   constructor(props) {
@@ -7,6 +7,7 @@ export default class LeftSidebar extends Component {
     this.handleAnimationClick = this.handleAnimationClick.bind(this)
     this.handleShapeClick = this.handleShapeClick.bind(this)
     this.handleTransitionTimingChange = this.handleTransitionTimingChange.bind(this)
+    this.handleTimeChange = this.handleTimeChange.bind(this)
   }
 
   handleAnimationClick(e, { name }) {
@@ -19,6 +20,10 @@ export default class LeftSidebar extends Component {
 
   handleTransitionTimingChange(e, { value }) {
     this.props.transitionSelect(value)
+  }
+
+  handleTimeChange(e) {
+    this.props.timeSelect(parseFloat(e.target.value))
   }
 
   render() {
@@ -44,32 +49,76 @@ export default class LeftSidebar extends Component {
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Item>
-          <Form>
-       <Form.Field>
-         Transition Timing:
-       </Form.Field>
-       <Form.Field>
-         <Checkbox
-           radio
-           label='Ease'
-           name='checkboxRadioGroup'
-           value='ease'
-           checked={this.props.transition === 'ease'}
-           onChange={this.handleTransitionTimingChange}
-         />
-       </Form.Field>
-       <Form.Field>
-         <Checkbox
-           radio
-           label='Linear'
-           name='checkboxRadioGroup'
-           value='linear'
-           checked={this.props.transition === 'linear'}
-           onChange={this.handleTransitionTimingChange}
-         />
-       </Form.Field>
-     </Form>
-   </Menu.Item>
+            <Form>
+             <Form.Field>
+               Transition Timing:
+             </Form.Field>
+             <Form.Field>
+               <Checkbox
+                 radio
+                 label='Linear'
+                 name='checkboxRadioGroup'
+                 value='linear'
+                 checked={this.props.transition === 'linear'}
+                 onChange={this.handleTransitionTimingChange}
+               />
+             </Form.Field>
+             <Form.Field>
+               <Checkbox
+                 radio
+                 label='Ease'
+                 name='checkboxRadioGroup'
+                 value='ease'
+                 checked={this.props.transition === 'ease'}
+                 onChange={this.handleTransitionTimingChange}
+               />
+             </Form.Field>
+             <Form.Field>
+               <Checkbox
+                 radio
+                 label='Ease In'
+                 name='checkboxRadioGroup'
+                 value='ease-in'
+                 checked={this.props.transition === 'ease-in'}
+                 onChange={this.handleTransitionTimingChange}
+               />
+             </Form.Field>
+             <Form.Field>
+               <Checkbox
+                 radio
+                 label='Ease Out'
+                 name='checkboxRadioGroup'
+                 value='ease-out'
+                 checked={this.props.transition === 'ease-out'}
+                 onChange={this.handleTransitionTimingChange}
+               />
+             </Form.Field>
+             <Form.Field>
+               <Checkbox
+                 radio
+                 label='Ease In Out'
+                 name='checkboxRadioGroup'
+                 value='ease-in-out'
+                 checked={this.props.transition === 'ease-in-out'}
+                 onChange={this.handleTransitionTimingChange}
+               />
+             </Form.Field>
+           </Form>
+         </Menu.Item>
+         <Menu.Item>
+           <Input
+            labelPosition='right'
+            placeholder='0.75'
+            type='number'
+            size='small'
+            fluid={true}
+            onChange={this.handleTimeChange}
+          >
+            <Label basic>Time</Label>
+            <input />
+            <Label>sec</Label>
+          </Input>
+        </Menu.Item>
       </Menu>
     )
   }

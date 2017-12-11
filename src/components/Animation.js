@@ -3,6 +3,27 @@ import { Button } from 'semantic-ui-react'
 import photo from '../../assets/photo.jpeg'
 
 class Animation extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {hovered: false}
+    this.style = this.style.bind(this)
+    this.onMouseOver = this.onMouseOver.bind(this)
+    this.onMouseOut = this.onMouseOut.bind(this)
+  }
+
+  style() {
+    if (this.state.hovered) {
+      return {animation: this.props.animationType + ' ' + this.props.time + 's ' + this.props.transition}
+    }
+  }
+
+  onMouseOver() {
+    this.setState({ hovered:true });
+  }
+
+  onMouseOut() {
+    this.setState({ hovered:false });
+  }
 
   returnObj() {
     if(this.props.shape === 'photo') {
@@ -16,7 +37,11 @@ class Animation extends Component {
 
   render() {
     return (
-        <div className={this.props.animationType + ' ' + this.props.shape + ' animation-space'}>
+        <div
+          onMouseOver={this.onMouseOver}
+          onMouseOut={this.onMouseOut}
+          style={this.style()}
+          className={this.props.shape + ' animation-space'}>
           {this.returnObj(this.props.shape)}
         </div>
     )
