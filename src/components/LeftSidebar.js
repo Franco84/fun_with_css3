@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dropdown, Icon, Input, Menu, Form, Checkbox, Label } from 'semantic-ui-react'
+import { Dropdown, Icon, Input, Menu, Form, Checkbox, Label, Popup } from 'semantic-ui-react'
 
 export default class LeftSidebar extends Component {
   constructor(props) {
@@ -51,7 +51,14 @@ export default class LeftSidebar extends Component {
           <Menu.Item>
             <Form>
              <Form.Field>
-               Transition Timing:
+               <Popup
+                trigger={<Icon name='question circle outline' size='medium' />}
+                content='The transition-timing-function property specifies the speed curve of the transition effect.'
+                offset={175}
+                position='right center'
+              />
+              Transition Timing:
+
              </Form.Field>
              <Form.Field>
                <Checkbox
