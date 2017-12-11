@@ -13,7 +13,7 @@ class Animation extends Component {
 
   style() {
     if (this.state.hovered) {
-      return {animation: this.props.animationType + ' ' + this.props.time + 's ' + this.props.transition}
+      return {animation: this.props.settings.animationType + ' ' + this.props.settings.time + 's ' + this.props.settings.transition}
     }
   }
 
@@ -26,11 +26,11 @@ class Animation extends Component {
   }
 
   returnObj() {
-    if(this.props.shape === 'photo') {
+    if(this.props.settings.shape === 'photo') {
       return <div className="img-div"><img className="photo-border" src={photo} height="200px" width="200px" /></div>
-    } else if (this.props.shape === 'text') {
+    } else if (this.props.settings.shape === 'text') {
       return <div className='text-shape'>Fun with CSS3!</div>
-    } else if (this.props.shape === 'button') {
+    } else if (this.props.settings.shape === 'button') {
       return <div className='button-shape'><Button size='massive' secondary>Fun with CSS3!</Button></div>
     }
   }
@@ -41,8 +41,8 @@ class Animation extends Component {
           onMouseOver={this.onMouseOver}
           onMouseOut={this.onMouseOut}
           style={this.style()}
-          className={this.props.shape + ' animation-space'}>
-          {this.returnObj(this.props.shape)}
+          className={this.props.settings.shape + ' animation-space'}>
+          {this.returnObj(this.props.settings.shape)}
         </div>
     )
   }

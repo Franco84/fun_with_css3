@@ -4,10 +4,6 @@ import { Dropdown, Icon, Input, Menu, Form, Checkbox, Label, Popup } from 'seman
 export default class LeftSidebar extends Component {
   constructor(props) {
     super(props)
-    this.handleAnimationClick = this.handleAnimationClick.bind(this)
-    this.handleShapeClick = this.handleShapeClick.bind(this)
-    this.handleTransitionTimingChange = this.handleTransitionTimingChange.bind(this)
-    this.handleTimeChange = this.handleTimeChange.bind(this)
   }
 
   handleAnimationClick(e, { name }) {
@@ -26,90 +22,67 @@ export default class LeftSidebar extends Component {
     this.props.timeSelect(parseFloat(e.target.value))
   }
 
+  animationDropdown() {
+    const animations = [['large-fade-out', 'Large Fade Out'], ['small-fade-in', 'Small Fade In'], ['vertical-squish', 'Vertical Squish'], ['three-sixty', '360 Turn'], ['bottom-flip', 'Bottom Flip'], ['lift-flip', 'Lift Flip']]
+    return animations.map((arr) => {
+      return  (
+        <Dropdown.Item name={arr[0]} active={this.props.settings.animationType === arr[0]} onClick={this.handleAnimationClick.bind(this)} text={arr[1]} />
+      )
+    })
+  }
+
+  shapeDropdown() {
+    const shapes = [['circles','circle', 'Circle'], ['squares', 'square', 'Square'], ['text', 'text height', 'Text'], ['button', 'add square', 'Button'], ['photo', 'image', 'Photo']]
+    return shapes.map((arr) => {
+      return  (
+        <Dropdown.Item name={arr[0]} active={this.props.settings.shape === arr[0]} onClick={this.handleShapeClick.bind(this)} icon={arr[1]} text={arr[2]} />
+      )
+    })
+}
+
+  checkboxes() {
+    const timingFunctions = [['Linear', 'linear'], ['Ease', 'ease'], ['Ease In', 'ease-in'], ['Ease Out', 'ease-out'], ['Ease In Out', 'ease-in-out']]
+    return timingFunctions.map((arr) => {
+      return (
+        <Form.Field>
+          <Checkbox
+            radio
+            label={arr[0]}
+            name='checkboxRadioGroup'
+            value={arr[1]}
+            checked={this.props.settings.transition === arr[1]}
+            onChange={this.handleTransitionTimingChange.bind(this)}
+          />
+        </Form.Field>
+      )
+    })
+  }
+
   render() {
     return (
       <Menu className="menu-alignment" vertical>
           <Dropdown item text='Animation'>
             <Dropdown.Menu>
-              <Dropdown.Item name='large-fade-out' active={this.props.activeAnimation === 'large-fade-out'} onClick={this.handleAnimationClick} text='Large Fade Out' />
-              <Dropdown.Item name='small-fade-in' active={this.props.activeAnimation === 'small-fade-in'} onClick={this.handleAnimationClick} text='Small Fade In' />
-              <Dropdown.Item name='vertical-squish' active={this.props.activeAnimation === 'vertical-squish'} onClick={this.handleAnimationClick} text='Vertical Squish' />
-              <Dropdown.Item name='three-sixty' active={this.props.activeAnimation === 'three-sixty'} onClick={this.handleAnimationClick} text='360 Turn' />
-              <Dropdown.Item name='bottom-flip' active={this.props.activeAnimation === 'bottom-flip'} onClick={this.handleAnimationClick} text='Bottom Flip' />
-              <Dropdown.Item name='lift-flip' active={this.props.activeAnimation === 'lift-flip'} onClick={this.handleAnimationClick} text='Lift Flip' />
+              {this.animationDropdown()}
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown item text='Shape'>
             <Dropdown.Menu>
-              <Dropdown.Item name='circles' active={this.props.activeShape === 'circles'} onClick={this.handleShapeClick} icon='circle' text='Circle' />
-              <Dropdown.Item name='squares' active={this.props.activeShape === 'squares'} onClick={this.handleShapeClick} icon='square' text='Square' />
-              <Dropdown.Item name='text' active={this.props.activeShape === 'text'} onClick={this.handleShapeClick} icon='text height' text='Text' />
-              <Dropdown.Item name='button' active={this.props.activeShape === 'button'} onClick={this.handleShapeClick} icon='add square' text='Button' />
-              <Dropdown.Item name='photo' active={this.props.activeShape === 'photo'} onClick={this.handleShapeClick} icon='image' text='Photo' />
+              {this.shapeDropdown()}
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Item>
             <Form>
              <Form.Field>
                <Popup
-                trigger={<Icon name='question circle outline' size='medium' />}
+                trigger={<Icon name='question circle outline' />}
                 content='The transition-timing-function property specifies the speed curve of the transition effect.'
                 offset={175}
                 position='right center'
               />
               Transition Timing:
-
              </Form.Field>
-             <Form.Field>
-               <Checkbox
-                 radio
-                 label='Linear'
-                 name='checkboxRadioGroup'
-                 value='linear'
-                 checked={this.props.transition === 'linear'}
-                 onChange={this.handleTransitionTimingChange}
-               />
-             </Form.Field>
-             <Form.Field>
-               <Checkbox
-                 radio
-                 label='Ease'
-                 name='checkboxRadioGroup'
-                 value='ease'
-                 checked={this.props.transition === 'ease'}
-                 onChange={this.handleTransitionTimingChange}
-               />
-             </Form.Field>
-             <Form.Field>
-               <Checkbox
-                 radio
-                 label='Ease In'
-                 name='checkboxRadioGroup'
-                 value='ease-in'
-                 checked={this.props.transition === 'ease-in'}
-                 onChange={this.handleTransitionTimingChange}
-               />
-             </Form.Field>
-             <Form.Field>
-               <Checkbox
-                 radio
-                 label='Ease Out'
-                 name='checkboxRadioGroup'
-                 value='ease-out'
-                 checked={this.props.transition === 'ease-out'}
-                 onChange={this.handleTransitionTimingChange}
-               />
-             </Form.Field>
-             <Form.Field>
-               <Checkbox
-                 radio
-                 label='Ease In Out'
-                 name='checkboxRadioGroup'
-                 value='ease-in-out'
-                 checked={this.props.transition === 'ease-in-out'}
-                 onChange={this.handleTransitionTimingChange}
-               />
-             </Form.Field>
+             {this.checkboxes()}
            </Form>
          </Menu.Item>
          <Menu.Item>
@@ -119,7 +92,7 @@ export default class LeftSidebar extends Component {
             type='number'
             size='small'
             fluid={true}
-            onChange={this.handleTimeChange}
+            onChange={this.handleTimeChange.bind(this)}
           >
             <Label basic>Time</Label>
             <input />
