@@ -5,25 +5,13 @@ import photo from '../../assets/photo.jpeg'
 class Animation extends Component {
   constructor(props) {
     super(props)
-    this.state = {hovered: false}
     this.style = this.style.bind(this)
-    this.onMouseOver = this.onMouseOver.bind(this)
-    this.onMouseOut = this.onMouseOut.bind(this)
   }
 
   style() {
-    if (this.state.hovered) {
       return {animation: this.props.settings.animationType + ' ' + this.props.settings.time + 's ' + this.props.settings.transition}
     }
-  }
 
-  onMouseOver() {
-    this.setState({ hovered:true });
-  }
-
-  onMouseOut() {
-    this.setState({ hovered:false });
-  }
 
   returnObj() {
     if(this.props.settings.shape === 'photo') {
@@ -38,8 +26,7 @@ class Animation extends Component {
   render() {
     return (
         <div
-          onMouseOver={this.onMouseOver}
-          onMouseOut={this.onMouseOut}
+          key={this.props.settings.repeat}
           style={this.style()}
           className={this.props.settings.shape + ' animation-space'}>
           {this.returnObj(this.props.settings.shape)}

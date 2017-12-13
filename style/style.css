@@ -121,10 +121,6 @@ body {
   }
 }
 
-/*.large-fade-out:hover {
-  animation: large-fade-out 2s ease;
-}*/
-
 /*####### SMALL FADE In #######*/
 
 @keyframes small-fade-in {
@@ -137,10 +133,6 @@ body {
     opacity: 0;
   }
 }
-
-/*.small-fade-in:hover {
-  animation: small-fade-in 2s linear;
-}*/
 
 /*####### Vertical Squish #######*/
 @keyframes vertical-squish {
@@ -155,10 +147,6 @@ body {
   }
 }
 
-/*.vertical-squish:hover {
-  animation: vertical-squish 3s linear;
-}*/
-
 /*####### 360 Turn #######*/
 
 @keyframes three-sixty {
@@ -170,10 +158,6 @@ body {
   }
 }
 
-/*.three-sixty:hover {
-	animation: three-sixty 1s ease-in-out;
-}*/
-
 /*####### Top Flip #######*/
 @keyframes bottom-flip {
   0% {
@@ -183,10 +167,6 @@ body {
     transform: rotateX(-180deg);
   }
 }
-
-/*.bottom-flip:hover {
-  animation: bottom-flip 0.75s ease;
-}*/
 
 /*####### Lift Flip #######*/
 @keyframes lift-flip {
@@ -199,7 +179,3 @@ body {
     transform-origin: 50% 100%;
   }
 }
-
-/*.lift-flip:hover {
-  animation: lift-flip 1s ease-in-out;
-}*/

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dropdown, Icon, Input, Menu, Form, Checkbox, Label, Popup } from 'semantic-ui-react'
+import { Dropdown, Icon, Input, Menu, Form, Checkbox, Label, Popup, Button } from 'semantic-ui-react'
 
 export default class LeftSidebar extends Component {
   constructor(props) {
@@ -22,29 +22,33 @@ export default class LeftSidebar extends Component {
     this.props.timeSelect(parseFloat(e.target.value))
   }
 
+  handleRepeat() {
+    this.props.repeat()
+  }
+
   animationDropdown() {
     const animations = [['large-fade-out', 'Large Fade Out'], ['small-fade-in', 'Small Fade In'], ['vertical-squish', 'Vertical Squish'], ['three-sixty', '360 Turn'], ['bottom-flip', 'Bottom Flip'], ['lift-flip', 'Lift Flip']]
-    return animations.map((arr) => {
+    return animations.map((arr, index) => {
       return  (
-        <Dropdown.Item name={arr[0]} active={this.props.settings.animationType === arr[0]} onClick={this.handleAnimationClick.bind(this)} text={arr[1]} />
+        <Dropdown.Item key={index} name={arr[0]} active={this.props.settings.animationType === arr[0]} onClick={this.handleAnimationClick.bind(this)} text={arr[1]} />
       )
     })
   }
 
   shapeDropdown() {
     const shapes = [['circles','circle', 'Circle'], ['squares', 'square', 'Square'], ['text', 'text height', 'Text'], ['button', 'add square', 'Button'], ['photo', 'image', 'Photo']]
-    return shapes.map((arr) => {
+    return shapes.map((arr, index) => {
       return  (
-        <Dropdown.Item name={arr[0]} active={this.props.settings.shape === arr[0]} onClick={this.handleShapeClick.bind(this)} icon={arr[1]} text={arr[2]} />
+        <Dropdown.Item key={index + 100} name={arr[0]} active={this.props.settings.shape === arr[0]} onClick={this.handleShapeClick.bind(this)} icon={arr[1]} text={arr[2]} />
       )
     })
 }
 
   checkboxes() {
     const timingFunctions = [['Linear', 'linear'], ['Ease', 'ease'], ['Ease In', 'ease-in'], ['Ease Out', 'ease-out'], ['Ease In Out', 'ease-in-out']]
-    return timingFunctions.map((arr) => {
+    return timingFunctions.map((arr, index) => {
       return (
-        <Form.Field>
+        <Form.Field key={index + 1000}>
           <Checkbox
             radio
             label={arr[0]}
@@ -98,6 +102,11 @@ export default class LeftSidebar extends Component {
             <input />
             <Label>sec</Label>
           </Input>
+        </Menu.Item>
+        <Menu.Item>
+          <Button fluid={true} icon onClick={this.handleRepeat.bind(this)}>
+            <Icon name='repeat'/>
+          </Button>
         </Menu.Item>
       </Menu>
     )

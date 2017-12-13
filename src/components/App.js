@@ -8,7 +8,7 @@ import LeftSidebar from './LeftSidebar'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {settings: {shape: 'circles', animationType: 'large-fade-out', transition: 'linear', time: 0.75}}
+    this.state = {settings: {shape: 'circles', animationType: 'large-fade-out', transition: 'linear', time: 0.75, repeat: true}}
   }
 
   onAnimationTypeSelect(e) {
@@ -51,6 +51,17 @@ class App extends Component {
     })
   }
 
+  onRepeatSelect() {
+    this.setState({
+      settings: Object.assign(
+        {},
+        this.state.settings,
+        {repeat: !this.state.settings.repeat}
+      )
+    })
+  }
+
+
   render() {
     return (
       <span>
@@ -73,6 +84,7 @@ class App extends Component {
                 shapeSelect={this.onShapeSelect.bind(this)}
                 transitionSelect={this.onTransitionSelect.bind(this)}
                 timeSelect={this.onTimeSelect.bind(this)}
+                repeat={this.onRepeatSelect.bind(this)}
                 settings={this.state.settings}
                />
             </Grid.Column>
