@@ -9,7 +9,7 @@ class Animation extends Component {
   }
 
   style() {
-      return {animation: this.props.settings.animationType + ' ' + this.props.settings.time + 's ' + this.props.settings.transition}
+      return {animation: this.props.settings.animationType + ' ' + this.props.settings.time + 's ' + this.props.settings.transition + ' backwards'}
     }
 
 

@@ -179,3 +179,44 @@ body {
     transform-origin: 50% 100%;
   }
 }
+
+/*####### Flip Outward #######*/
+@keyframes flip-outward {
+  0% {
+            transform: scale(1) rotateX(0);
+  }
+  50% {
+            transform: scale(2.5) rotateX(-90deg);
+  }
+  100% {
+            transform: scale(1) rotateX(-180deg);
+  }
+}
+
+/*####### Side Flip #######*/
+@keyframes side-flip {
+  0% {
+      transform-origin: 100% 50%;
+      transform: translateX(0) rotateY(0) scale(1);
+  }
+  50% {
+    transform-origin: 50% 50%;
+    transform: translateX(50%) rotateY(-90deg) scale(2);
+  }
+  100% {
+    transform-origin: 0% 50%;
+    transform: translateX(100%) rotateY(-180deg) scale(1);
+  }
+}
+
+/*####### Swing Up #######*/
+@keyframes swing-up {
+  0% {
+    transform-origin: top;
+    transform: rotateX(0);
+  }
+  100% {
+    transform-origin: top;
+    transform: rotateX(180deg);
+  }
+}
