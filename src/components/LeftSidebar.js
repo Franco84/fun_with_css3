@@ -19,7 +19,7 @@ export default class LeftSidebar extends Component {
   }
 
   handleTimeChange(e) {
-    this.props.timeSelect(parseFloat(e.target.value))
+    parseFloat(e.target.value) <= 0 || e.target.value === "" ? this.props.timeSelect(0.75) : this.props.timeSelect(parseFloat(e.target.value))
   }
 
   handleRepeat() {
@@ -28,9 +28,10 @@ export default class LeftSidebar extends Component {
 
   animationDropdown() {
     const animations = [
-    ['large-fade-out', 'Large Fade Out'], ['small-fade-in', 'Small Fade In'], 
+    ['large-fade-out', 'Large Fade Out'], ['small-fade-in', 'Small Fade In'],
     ['vertical-squish', 'Vertical Squish'], ['three-sixty', '360 Turn'], ['bottom-flip', 'Bottom Flip'],
-    ['lift-flip', 'Lift Flip'], ['flip-outward', 'Flip Outward'],['side-flip', 'Side Flip'],['swing-up','Swing Up']
+    ['lift-flip', 'Lift Flip'], ['flip-outward', 'Flip Outward'],['side-flip', 'Side Flip'],['swing-up','Swing Up'],
+    ['slide-left', 'Slide Left'], ['slide-right', 'Slide Right']
   ]
     return animations.map((arr, index) => {
       return  (
