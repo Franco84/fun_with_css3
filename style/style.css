@@ -2,7 +2,6 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: -webkit-gradient(linear, left bottom, left top, from(#CCC), color-stop(#EEE), to(#CCC));
   background: -webkit-linear-gradient(bottom, #CCC, #EEE, #CCC);
   background: -o-linear-gradient(bottom, #CCC, #EEE, #CCC);
   background: linear-gradient(0deg, #CCC, #EEE, #CCC);
@@ -164,6 +163,32 @@ body {
     -webkit-transform: scale(0);
             transform: scale(0);
     opacity: 0;
+  }
+}
+
+/*####### Fade In & Rotate #######*/
+@-webkit-keyframes fade-in-rotate {
+  0% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-rotate {
+  0% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    opacity: 1;
   }
 }
 
