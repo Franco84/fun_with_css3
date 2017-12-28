@@ -31,7 +31,7 @@ export default class LeftSidebar extends Component {
     ['large-fade-out', 'Large Fade Out'], ['small-fade-in', 'Small Fade In'], ['fade-in-rotate',' Fade In & Rotate'],
     ['vertical-squish', 'Vertical Squish'], ['three-sixty', '360 Turn'], ['bottom-flip', 'Bottom Flip'],
     ['lift-flip', 'Lift Flip'], ['flip-outward', 'Flip Outward'],['side-flip', 'Side Flip'],['swing-up','Swing Up'],
-    ['slide-left', 'Slide Left'], ['slide-right', 'Slide Right']
+    ['slide-left', 'Slide Left'], ['slide-right', 'Slide Right'], ['shake', 'Shake']
   ]
     return animations.map((arr, index) => {
       return  (
